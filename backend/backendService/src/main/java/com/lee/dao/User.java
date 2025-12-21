@@ -5,34 +5,51 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table(name = "[user]")
+@Table(name = "UserDetails")
 public class User {
 
     @Id
-    @Column(name ="phone_no")
+    @Column(name = "UserId")
+    private String userId;
+
+    @Column(name = "First_Name")
+    private String firstName;
+
+    @Column(name = "Last_Name")
+    private String lastName;
+
+    @Column(name = "Phone_Number")
     private String phoneNo;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Email_Id")
+    private String emailId;
 
-    @Column(name = "balance")
-    private String balance;
+    @Column(name = "Password")
+    private String password;
 
-    @Column(name = "to_give")
-    private String toGive;
-
-    @Column(name = "to_get")
-    private int toGet;
-
-
-    public String getToGive() {
-        return toGive;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setToGive(String toGive) {
-        this.toGive = toGive;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNo() {
@@ -43,31 +60,19 @@ public class User {
         this.phoneNo = phoneNo;
     }
 
-    public String getName() {
-        return name;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
-    public String getBalance() {
-        return balance;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    public int getToGet() {
-        return toGet;
-    }
-
-    public void setToGet(int toGet) {
-        this.toGet = toGet;
-    }
-
-
-
-
 }

@@ -1,11 +1,14 @@
 package com.lee.controller;
 
-import com.lee.dao.SignInCredentials;
+import com.lee.dao.User;
+import com.lee.response.SignInResponse;
 import com.lee.service.SignInService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.Optional;
+
+@RestController
 @RequestMapping("/signin")
 public class SignInController {
 
@@ -15,9 +18,9 @@ public class SignInController {
         this.service = service;
     }
 
-    @PostMapping
-    public SignInCredentials create(@RequestBody SignInCredentials cred){
-       return service.save(cred);
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable String id){
+        return service.findById(id);
     }
 
     @DeleteMapping("/{id}")

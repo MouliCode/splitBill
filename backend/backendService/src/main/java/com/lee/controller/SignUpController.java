@@ -1,9 +1,7 @@
 package com.lee.controller;
 
-import com.lee.dao.SignUpUser;
-import com.lee.response.signUpResponse.SignUpResponse;
+import com.lee.dao.User;
 import com.lee.service.SignUpService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -19,17 +17,17 @@ public class SignUpController {
     }
 
     @PostMapping
-    public SignUpUser create (@RequestBody SignUpUser user){
+    public User create (@RequestBody User user){
         return service.save(user);
     }
 
     @GetMapping("/{id}")
-    public Optional<SignUpUser> getUser(@PathVariable String id){
+    public Optional<User> getUser(@PathVariable String id){
        return service.findById(id);
     }
 
     @PatchMapping
-    public SignUpUser updateUser(@RequestBody SignUpUser user){
+    public User updateUser(@RequestBody User user){
         return service.updateById(user);
     }
 

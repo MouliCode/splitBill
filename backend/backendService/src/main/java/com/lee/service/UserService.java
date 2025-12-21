@@ -27,29 +27,15 @@ public class UserService {
         return repo.findAll();
     }
 
-    public Optional<User> findById(String phoneNo){
-        return repo.findById(Integer.valueOf(phoneNo));
+    public Optional<User> findById(String id){
+        return repo.findById(id);
     }
 
     @Transactional
-    public boolean deleteById(String phoneNo){
-        if(!repo.existsById(Integer.valueOf(phoneNo))) return false;
-        repo.deleteById(Integer.valueOf(phoneNo));
+    public boolean deleteById(String id){
+        if(!repo.existsById(id)) return false;
+        repo.deleteById(id);
         return true;
     }
 
-    @Transactional
-    public User updateById(User user){
-        User existing = repo.findById(Integer.valueOf(user.getPhoneNo())).orElse(null);
-
-        if(existing == null){
-            return null;
-        }
-        existing.setName(user.getName());
-        existing.setBalance(user.getBalance());
-        existing.setToGet(user.getToGet());
-        existing.setToGive(user.getToGive());
-
-        return existing;
-    }
 }

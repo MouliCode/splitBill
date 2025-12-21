@@ -1,7 +1,7 @@
-package com.lee.response.signUpResponse;
+package com.lee.response;
 
 
-import com.lee.dao.SignUpUser;
+import com.lee.dao.User;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,9 +9,9 @@ public class SignUpResponse {
 
 
 
-    public SignUpUser createResponse(SignUpUser user){
+    public User createResponse(User user){
 
-        var response = new SignUpUser();
+        var response = new User();
         response.setUserId(user.getUserId());
         response.setFirstName(user.getFirstName());
         response.setLastName(user.getLastName());

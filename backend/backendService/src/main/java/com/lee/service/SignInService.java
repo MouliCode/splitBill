@@ -1,7 +1,8 @@
 package com.lee.service;
 
-import com.lee.dao.SignInCredentials;
-import com.lee.dao.repo.SingInCreadentialsRepository;
+import com.lee.dao.User;
+import com.lee.dao.repo.UserRepository;
+import com.lee.response.SignInResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +12,16 @@ import java.util.Optional;
 public class SignInService {
 
 
-    private  final SingInCreadentialsRepository repo;
+    private  final UserRepository repo;
+    private final SignInResponse response;
 
-    public SignInService(SingInCreadentialsRepository repo) {this.repo = repo;}
-
-    public Optional<SignInCredentials> findById(String id){
-        return repo.findById(id);
+    public SignInService(UserRepository repo, SignInResponse response) {
+        this.repo = repo;
+        this.response = response;
     }
 
-    @Transactional
-    public SignInCredentials save(SignInCredentials cred){
-        return repo.save(cred);
+    public Optional<User> findById(String id){
+        return Optional.ofNullable(response.SignInResponse(repo.findById(id).get()));
     }
 
     @Transactional

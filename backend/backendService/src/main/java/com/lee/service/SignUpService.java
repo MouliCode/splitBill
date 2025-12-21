@@ -1,8 +1,8 @@
 package com.lee.service;
 
-import com.lee.dao.SignUpUser;
-import com.lee.dao.repo.SignUpUserRepository;
-import com.lee.response.signUpResponse.SignUpResponse;
+import com.lee.dao.User;
+import com.lee.dao.repo.UserRepository;
+import com.lee.response.SignUpResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +11,27 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SignUpService extends SignUpUser {
+public class SignUpService extends User {
 
-    private final SignUpUserRepository repo;
+    private final UserRepository repo;
     private final SignUpResponse response;
 
-    public SignUpService(SignUpUserRepository repo, SignUpResponse response){
+    public SignUpService(UserRepository repo, SignUpResponse response){
         this.repo = repo;
         this.response = response;
     }
 
     @Transactional
-    public SignUpUser save(SignUpUser user){
+    public User save(User user){
         return response.createResponse(repo.save(user));
     }
 
-    public Optional<SignUpUser> findById(String userID){
+    public Optional<User> findById(String userID){
         return Optional.ofNullable(response.createResponse(repo.findById(userID).get()));
     }
 
-    public List<SignUpUser> findAll(){
-        return Collections.singletonList(response.createResponse((SignUpUser) repo.findAll()));
+    public List<User> findAll(){
+        return Collections.singletonList(response.createResponse((User) repo.findAll()));
     }
 
     public boolean deleteById(String userID){
@@ -46,8 +46,8 @@ public class SignUpService extends SignUpUser {
     }
 
     @Transactional
-    public SignUpUser updateById(SignUpUser user){
-        Optional<SignUpUser> existing = repo.findById(user.getUserId());
+    public User updateById(User user){
+        Optional<User> existing = repo.findById(user.getUserId());
 
         if(existing == null){
             return null;
