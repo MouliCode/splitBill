@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class SplitbillApplication {
+public class SplitBillApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SplitbillApplication.class, args);
+        SpringApplication.run(SplitBillApplication.class, args);
     }
 
 }

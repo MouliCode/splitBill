@@ -2,7 +2,7 @@ package com.lee.service;
 
 
 import com.lee.dao.User;
-import com.lee.dao.UserRepository;
+import com.lee.dao.repo.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.lee.service;
 
 import com.lee.dao.SignInCredentials;
-import com.lee.dao.SingInCreadentialsRepository;
+import com.lee.dao.repo.SingInCreadentialsRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
