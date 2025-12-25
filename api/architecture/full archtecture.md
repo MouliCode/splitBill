@@ -495,3 +495,41 @@ If you want next:
 * Database scripts
 * Interview-ready explanation
 * Low-level design (LLD)
+
+com.splitwise
+ ├── auth
+ │    ├── controller
+ │    ├── service
+ │    ├── repository
+ │    ├── entity
+ │    └── security
+ │
+ ├── user
+ │    ├── controller
+ │    ├── service
+ │    └── dto
+ │
+ ├── group
+ │    ├── controller
+ │    ├── service
+ │    ├── repository
+ │    └── entity
+ │
+ ├── expense
+ │    ├── controller
+ │    ├── service
+ │    ├── strategy
+ │    ├── factory
+ │    ├── repository
+ │    └── entity
+ │
+ ├── balance
+ │    ├── controller
+ │    ├── service
+ │    └── repository
+ │
+ ├── common
+ │    ├── dto
+ │    ├── exception
+ │    ├── config
+ │    └── security
